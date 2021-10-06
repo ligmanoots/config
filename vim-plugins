@@ -1,0 +1,44 @@
+call plug#begin('~/.config/nvim/autoload/plugged')
+
+    "Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+    "NerdTree File Explorer
+    Plug 'scrooloose/NERDTree'
+    "NerdTree Git status
+    Plug 'xuyuanp/nerdtree-git-plugin'
+    "Auto pairs for '(' '[' '{'
+    Plug 'jiangmiao/auto-pairs'
+    "Git wrapper
+    Plug 'tpope/vim-fugitive'
+    "Conquer of Completion and Jedi
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Snippets
+    Plug 'honza/vim-snippets'
+    "Emmet
+    Plug 'mattn/emmet-vim'
+    "Ale
+    Plug 'w0rp/ale'
+    "Airline
+    Plug 'vim-airline/vim-airline'
+    "Airline themes
+    Plug 'vim-airline/vim-airline-themes'
+    "Whitespace highlight
+    Plug 'ntpeters/vim-better-whitespace'
+    "Test in Vim
+    Plug 'janko-m/vim-test'
+    "Indenter
+    "Plug 'nathanaelkane/vim-indent-guides'
+    "Comment Stuff out
+    Plug 'tpope/vim-commentary'
+    "Surround endings
+    Plug 'tpope/vim-surround'
+
+
+    set encoding=UTF-8
+
+call plug#end()
+
+"Key binding for vim-test
+nmap <silent> t<F5> :TestFile<CR>
+"Make test commands execute using dispatch.vim
+let test#strategy = "neovim"
