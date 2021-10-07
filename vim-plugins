@@ -6,6 +6,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+:set number
+:set relativenumber
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     "Better Syntax Support
@@ -18,8 +27,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     "Git wrapper
     Plug 'tpope/vim-fugitive'
-    "Conquer of Completion and Jedi
+    "Conquer of Completion. COC needs node.js to run
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Jedi another autocomplete
+    "Plug 'davidhalter/jedi-vim'
     "Snippets
     Plug 'honza/vim-snippets'
     "Emmet
@@ -42,10 +53,56 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     "Prettier
     Plug 'prettier/vim-prettier'
-
+    "Developer Icons
+    Plug 'ryanoasis/vim-devicons'
+    "DIfferent Color Schemes
+    Plug 'rafi/awesome-vim-colorschemes'
+    "Tagbar
+    Plug 'majutsushi/tagbar'
 
     set encoding=UTF-8
 
 call plug#end()
 
+"NERDTree
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+
+nmap <F8> :TagbarToggle<CR>
+
+":set completeopt-=preview " For No Previews
+
+:colorscheme jellybeans
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" --- Just Some Notes ---
+" :PlugClean :PlugInstall :UpdateRemotePlugins
+
+"COC Stuff
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"" 
+
+" :CocInstall coc-python
+" :CocInstall coc-clangd
+" :CocInstall coc-snippets
+" :CocCommand snippets.edit... FOR EACH FILE TYPE
 
