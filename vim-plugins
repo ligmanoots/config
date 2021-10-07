@@ -29,6 +29,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     "Conquer of Completion. COC needs node.js to run
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Conquer of Completion and Jedi
+    Plug 'pappasam/coc-jedi'
     "Jedi another autocomplete
     "Plug 'davidhalter/jedi-vim'
     "Snippets
@@ -41,8 +43,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     "Airline themes
     Plug 'vim-airline/vim-airline-themes'
-    "Whitespace highlight
-    Plug 'ntpeters/vim-better-whitespace'
     "Test in Vim
     Plug 'janko-m/vim-test'
     "Indenter
@@ -74,7 +74,7 @@ nmap <F8> :TagbarToggle<CR>
 
 ":set completeopt-=preview " For No Previews
 
-:colorscheme jellybeans
+:colorscheme afterglow
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
@@ -105,4 +105,5 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>""
 " :CocInstall coc-clangd
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
+
 
