@@ -15,26 +15,20 @@ endif
 :set softtabstop=4
 :set mouse=a
 
-call plug#begin('~/.config/nvim/autoload/plugged')
+:call plug#begin('~/.config/nvim/autoload/plugged')
 
     "Better Syntax Support
     Plug 'sheerun/vim-polyglot'
-    "Ranger File Explorer
-    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     "NerdTree File Explorer
-    "Plug 'scrooloose/NERDTree'
+    Plug 'scrooloose/NERDTree'
     "NerdTree Git status
-    "Plug 'xuyuanp/nerdtree-git-plugin'
+    Plug 'xuyuanp/nerdtree-git-plugin'
     "Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     "Git wrapper
     Plug 'tpope/vim-fugitive'
     "Conquer of Completion. COC needs node.js to run
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Conquer of Completion and Jedi
-    Plug 'pappasam/coc-jedi'
-    "Jedi another autocomplete
-    "Plug 'davidhalter/jedi-vim'
     "Snippets
     Plug 'honza/vim-snippets'
     "Emmet
@@ -63,9 +57,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'majutsushi/tagbar'
     "Tabular
     Plug 'godlygeek/tabular'
-    "Which Key
-    Plug 'liuchengxu/vim-which-key'
-
+    "vim-terminal
+    Plug 'tc50cal/vim-terminal'
+    "CSS color
+    Plug 'ap/vim-css-color'
 
 
     set encoding=UTF-8
