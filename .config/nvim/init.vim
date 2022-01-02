@@ -51,7 +51,8 @@
     Plug 'tc50cal/vim-terminal'
     "CSS color
     Plug 'ap/vim-css-color'
-
+    "pywal color schemes
+    Plug 'dylanaraps/wal.vim'
 
     set encoding=UTF-8
 
@@ -67,7 +68,13 @@ nmap <F8> :TagbarToggle<CR>
 
 ":set completeopt-=preview " For No Previews
 
-:colorscheme afterglow
+#color scheme for pywal
+:colorscheme wal
+
+#background opacity
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
