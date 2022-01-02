@@ -149,10 +149,10 @@ bind '$' __history_previous_command_arguments
 #Unimatrix Functions
 function matrix
     echo time to exit the matrix
-    unimatrix -a -g black -l m
+    unimatrix -a -l m
 end
 
-
+cat ~/.cache/wal/sequences &
 
 neofetch
 
