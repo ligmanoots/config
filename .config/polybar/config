@@ -1,0 +1,396 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+#${xrdb:background}to make background semi transparent
+
+[colors]
+backgroundt = ${env:color_background}
+background = ${xrdb:background}
+background-alt = #aa000000
+foreground = ${xrdb:foreground}
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+
+
+[bar/right]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 25%
+height = 27
+enable-ipc = true
+offset-x = 74.8%
+offset-y = 0.5%
+fixed-center = true
+border-size = 2
+border-color = ${colors.background-alt}
+wm-restack = bspwm
+dim-value = 1.0
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 3
+
+padding-left = 0
+padding-right = 1.5
+
+tray-position = none
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+module-margin-right = 1
+module-margin-left = 0
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
+font-1 = JetBrainsMono Nerd Font:size=15;5
+font-2 = Material Design Icons:style=Bold:size=11;5
+font-3 = unifont:fontformat=truetype:size=11:antialias=true;
+
+modules-right = pulseaudio memory cpu battery powermenu
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 35
+label-font = 4
+label-empty = "Arch Linux"
+label-empty-font = 4
+
+[module/xbacklight]
+type = internal/xbacklight
+card = intel_backlight
+enable-scroll = true
+
+format = <label>
+format-prefix = " " 
+label = %percentage%%
+label-foreground = ${colors.foreground}
+format-background = 
+format-prefix-foreground = ${colors.foreground}
+format-padding = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground} 
+label-volume-background = 
+label-volume-padding-right = 2
+label-volume-padding-left = 1
+label-muted = 婢
+label-muted-foreground = ${colors.foreground}
+label-muted-background = }
+
+label-muted-padding = 2
+
+ramp-volume-spacing = 0
+ramp-volume-foreground = ${colors.foreground}
+ramp-volume-background = 
+ramp-volume-0 =  
+ramp-volume-1 =  
+ramp-volume-padding-left = 2
+
+click-right = pulsemixer 
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format = <label>
+format-background =
+label-foreground = ${colors.foreground}
+label = %percentage%%
+format-padding = 2
+
+[module/memory]
+type = internal/memory
+interval = 0.5
+format = <label>
+label-foreground = ${colors.foreground}
+format-prefix = " "
+format-background = 
+format-prefix-foreground = ${colors.foregroud}
+label = %percentage_used%%
+format-padding = 2
+
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 96
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 100
+
+; Only applies if <animation-charging> is used
+animation-charging-foreground = ${colors.foreground}
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
+animation-discharging-3 = " "
+animation-discharging-4 = " "
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+format-spacing = 1
+
+label-open = 
+label-close = ﰸ 
+label-separator = |
+
+menu-0-0 = 
+menu-0-0-exec = systemctl hybrid-sleep
+menu-0-1 =  
+menu-0-1-exec = reboot
+menu-0-2 = ⭘
+menu-0-2-exec = poweroff
+
+label-close-foreground = #a7dca9
+menu-0-0-foreground = #5da3c3
+menu-0-1-foreground = #5da3c3
+menu-0-2-foreground = #5da3c3
+label-open-foreground =  #e06c75
+
+
+[bar/center]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 15%
+height = 27
+enable-ipc = true
+offset-x = 42.5%
+offset-y = 0.5%
+fixed-center = true
+border-size = 2
+border-color = ${colors.background-alt}
+wm-restack = bspwm
+dim-value = 1.0
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 3
+
+padding-left = 0
+padding-right = 0
+
+tray-position = none
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+module-margin-right = 0
+module-margin-left = 0
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
+font-1 = JetBrainsMono Nerd Font:size=15;5
+font-2 = Material Design Icons:style=Bold:size=11;5
+font-3 = unifont:fontformat=truetype:size=11:antialias=true;
+
+modules-center = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = 
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+
+label-occupied = 
+label-occupied-padding = 1
+
+label-empty = 
+label-empty-foreground = ${colors.color3}
+label-empty-padding= 1
+
+label-separator = |
+label-separator-foreground = ${colors.color10}
+
+[bar/left]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 24%
+height = 27
+enable-ipc = true
+offset-x = 0.2%
+offset-y = 0.5%
+fixed-center = true
+border-size = 2
+border-color = ${colors.background-alt}
+wm-restack = bspwm
+dim-value = 1.0
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 3
+
+padding-left = 0
+padding-right = 0
+
+tray-position = none
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+module-margin-right = 0
+module-margin-left = 1
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
+font-1 = JetBrainsMono Nerd Font:size=15;5
+font-2 = Material Design Icons:style=Bold:size=11;5
+font-3 = unifont:fontformat=truetype:size=11:antialias=true;
+
+modules-left = date time network aur
+
+[module/date]
+type = internal/date
+interval = 1
+format-foreground = ${colors.foreground}
+
+date = "%Y-%m-%d "
+date-alt = "%Y-%m-%d"
+
+time = " %I:%M %p"
+time-alt = %H:%M:%S
+
+format-prefix = " " 
+format-prefix-foreground = ${xrdb:color4:#222}
+format-background = 
+format-padding = 1
+
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 1
+format-foreground = ${colors.foreground}
+
+date = " %Y-%m-%d "
+date-alt = " %Y-%m-%d"
+
+time = "%I:%M %p"
+time-alt = %H:%M:%S
+
+format-prefix = " " 
+format-prefix-foreground = ${colors.foreground}
+format-background = 
+format-padding = 1
+
+label = %time%
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected =  %essid%
+
+label-connected-foreground = ${colors.foreground}
+label-connected-background = 
+label-connected-padding = 1 
+
+label-disconnected =disconnected  
+label-disconnected-foreground = ${colors:foreground}
+
+[module/aur]
+type = custom/script
+exec = pacman -Qi | wc -l
+interval = 60
+label =: %output%
+format-foreground = ${colors.foreground}
+format-background = 
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground}
+format-padding = 1
+
+
+
+[settings]
+screenchange-reload = false
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 3
+margin-bottom = 0
+
+; vim:ft=dosini
