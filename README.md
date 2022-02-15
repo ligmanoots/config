@@ -1,3 +1,3 @@
-Dotfiles with most of my config files
+My dotfiles need to provide a picture or something
 
 
