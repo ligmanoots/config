@@ -1,13 +1,21 @@
-:set number
-:set relativenumber
-:set autoindent
-:set tabstop=4
-:set shiftwidth=4
-:set smarttab
-:set softtabstop=4
-:set mouse=a
+set number
+set relativenumber
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set mouse=a
+set clipboard=unnamedplus
+set showtabline=2
+set incsearch
+set ignorecase
+set smartcase
+set wildmenu
+set wildmode=list:longest,full
+set noshowmode
 
-:call plug#begin()
+call plug#begin()
 
     "Better Syntax Support
     Plug 'sheerun/vim-polyglot'
@@ -68,10 +76,10 @@ nmap <F8> :TagbarToggle<CR>
 
 ":set completeopt-=preview " For No Previews
 
-#color scheme for pywal
-:colorscheme wal
+"color scheme for pywal
+colorscheme wal
 
-#background opacity
+"background opacity
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
@@ -102,8 +110,3 @@ let g:airline_symbols.linenr = ''
 "Switch to your current theme
 let g:airline_theme = 'afterglow'
 
-"Always show tabs
-set showtabline=2
-
-"Makes INSERT not show up twice
-set noshowmode
