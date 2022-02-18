@@ -1,3 +1,4 @@
+syntax enable
 set number
 set relativenumber
 set autoindent
@@ -13,6 +14,7 @@ set ignorecase
 set smartcase
 set wildmenu
 set wildmode=list:longest,full
+set showmatch
 set noshowmode
 
 call plug#begin()
@@ -49,6 +51,8 @@ call plug#begin()
     Plug 'prettier/vim-prettier'
     "Developer Icons
     Plug 'ryanoasis/vim-devicons'
+    "ctrl+p fuzzy file searcher
+    Plug 'ctrlpvim/ctrlp.vim'
     "DIfferent Color Schemes
     Plug 'rafi/awesome-vim-colorschemes'
     "Tagbar
@@ -108,5 +112,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 "Switch to your current theme
-let g:airline_theme = 'afterglow'
+"let g:airline_theme = 'afterglow'
+
+"CtrlP settings
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
