@@ -168,17 +168,17 @@ super + {Left,Down,Up,Right}
 #
 
 Print
-   maim -s | xclip --selection clipboard
+   maim -s -u | xclip --selection clipboard -t image/png -i
 
 
 
 
 #Volume Control
 XF86AudioRaiseVolume
-	pulsemixer --change-volume +5
+	pulsemixer --change-volume +2
 
 XF86AudioLowerVolume
-	pulsemixer --change-volume -5
+	pulsemixer --change-volume -2
 
 
 XF86AudioMute
