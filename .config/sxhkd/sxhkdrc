@@ -20,7 +20,7 @@ shift + Escape
 
 # run rofi wifi menu
 ctrl + shift + n
-	$HOME/.scripts/rofi-wifi-menu.sh
+	$HOME/.scripts/rofi-wifi-menu
 
 #run rofi bluetooth menu
 ctrl + shift + b
