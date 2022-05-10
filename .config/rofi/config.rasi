@@ -1,0 +1,26 @@
+/** Basic config file **/
+
+configuration {
+  display-drun: "run";
+  display-window: "Windows";
+  drun-display-format: "{icon} {name}";
+  modi: "window,drun,ssh,combi";
+  combi-modi: "window,drun,ssh";
+  show-icons:         true;
+  icon-theme:         "Papirus";
+  font: "JetBrainsMono Nerd Font 11";
+  terminal: "kitty";
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+
+* {
+    background:                     #00000000;
+    background-alt:              	#00000000;
+    background-bar:                 #f2f2f215;
+    foreground:                     #f2f2f2EE;
+    accent:			            	#3DAEE966;
+}
+
+
